@@ -1,3 +1,4 @@
-# java-spring-template
+# user-service
 
-Fork this repository as a foundation for new spring services.
+
+A repository for registering users, obtaining user profiles, and interacting with them
