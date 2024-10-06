@@ -1,13 +1,11 @@
 package com.template;
 
-import static java.net.http.HttpClient.newHttpClient;
-import static java.net.http.HttpRequest.BodyPublishers.ofString;
-import static java.net.http.HttpRequest.newBuilder;
-import static java.net.http.HttpResponse.BodyHandlers.ofString;
-import static java.time.Duration.of;
-import static java.time.temporal.ChronoUnit.SECONDS;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.testcontainers.containers.wait.strategy.Wait.*;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.DockerComposeContainer;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,12 +13,16 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
-import org.testcontainers.containers.DockerComposeContainer;
-import org.testcontainers.containers.output.Slf4jLogConsumer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
+
+import static java.net.http.HttpClient.newHttpClient;
+import static java.net.http.HttpRequest.BodyPublishers.ofString;
+import static java.net.http.HttpRequest.newBuilder;
+import static java.net.http.HttpResponse.BodyHandlers.ofString;
+import static java.time.Duration.of;
+import static java.time.temporal.ChronoUnit.SECONDS;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.testcontainers.containers.wait.strategy.Wait.forHealthcheck;
+import static org.testcontainers.containers.wait.strategy.Wait.forLogMessage;
 
 @Slf4j
 @Testcontainers

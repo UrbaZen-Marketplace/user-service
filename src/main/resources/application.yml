@@ -7,9 +7,9 @@ dbSchema: app_java_spring_template
 
 spring:
   application:
-    name: java-spring-template
+    name: user-service
     version: 0.0.1.test
-    description: java template project, feel free to change
+    description: user-service, everything related to the functionality of users
   datasource:
     url: jdbc:postgresql://${dbHost}:${dbPort}/${dbName}
     username: ${dbUsername}

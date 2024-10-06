@@ -1,16 +1,15 @@
 package com.template.entity;
 
+import com.template.enums.Roles;
+import jakarta.persistence.*;
+import lombok.*;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "user_view")
@@ -25,4 +24,16 @@ public class User {
 
   @Column(nullable = false)
   private String lastName;
+  @Column(nullable = false,unique = true)
+  private String email;
+  private Roles role;
+  private String phoneNumber;
+  private String password;
+  private String city;
+  private String address;
+
+  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+  private Cart cart;
+
+
 }
