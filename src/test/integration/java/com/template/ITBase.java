@@ -1,7 +1,5 @@
 package com.template;
 
-import static org.springframework.test.context.TestConstructor.AutowireMode.ALL;
-
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -15,6 +13,8 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static org.springframework.test.context.TestConstructor.AutowireMode.ALL;
+
 @Slf4j
 @Transactional
 @SpringBootTest
@@ -27,9 +27,9 @@ public class ITBase {
   @SuppressWarnings("resource")
   private static final PostgreSQLContainer<?> POSTGRES =
       new PostgreSQLContainer<>("postgres:15.1")
-          .withDatabaseName("it_template_db")
-          .withUsername("it_template_user")
-          .withPassword("it_template_password")
+          .withDatabaseName("user_service")
+          .withUsername("user_service_name")
+          .withPassword("user_service_password")
           .withLogConsumer(new Slf4jLogConsumer(log).withPrefix("[POSTGRES]"))
           .withCommand("-c", "log_statement=all");
 

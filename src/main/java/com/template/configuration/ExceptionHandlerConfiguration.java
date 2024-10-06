@@ -1,12 +1,7 @@
 package com.template.configuration;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-
 import com.template.model.exception.UserNotFoundException;
 import jakarta.validation.constraints.NotNull;
-import java.time.Instant;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.validation.FieldError;
@@ -15,6 +10,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Slf4j
 @RestControllerAdvice
